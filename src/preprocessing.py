@@ -4,12 +4,14 @@ import os
 from PIL import Image
 from tensorflow.keras.preprocessing.image import img_to_array
 from tensorflow.keras.applications.mobilenet_v2 import preprocess_input
+import os
+
 
 
 # Loads images(preprocessed) and labels into numpy arrays X and y
 def load_data(directory_images, filepath_labels):
-    """Takes image directory and label filepath, processes the pictures and loads preprocessed
-    images and labels into X and y"""
+    """Takes image directory and label filepath, processes the pictures 
+    and loads preprocessed images and labels into X and y"""
 
     # "labels.csv" contains image filename and label e.g. (image1.jpg, 248)
     labels = pd.read_csv(filepath_labels)
@@ -91,6 +93,8 @@ def model_specific_preprocessing (img_array):
 
 
 if __name__ == "__main__":
+    # Set the working directory to the current file's directory
+    os.chdir(os.path.dirname(__file__))
 
     # Select directory where pictures are stored
     directory_images = "../data/raw_data/raw_images/"
