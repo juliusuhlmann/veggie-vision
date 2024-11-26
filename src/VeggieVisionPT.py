@@ -172,8 +172,8 @@ def evaluate(model, X_test, y_test, device):
 
 if __name__ == "__main__":
     # Load the data
-    X = np.load("../data/processed_data/X.npy")
-    y = np.load("../data/processed_data/y.npy")
+    X = np.load("data/processed_data/X.npy")
+    y = np.load("data/processed_data/y.npy")
 
     # Perform train-test split
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
@@ -197,4 +197,4 @@ if __name__ == "__main__":
     evaluate(model, X_test, y_test, device)
 
     # Save model
-    torch.save(model.state_dict(), '../models/veggie_vision_pt.pth')
+    torch.save(model.state_dict(), 'models/veggie_vision_pt.pth')

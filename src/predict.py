@@ -18,8 +18,8 @@ def predict_image(prediction_image_path, model_path):
 
 if __name__ == "__main__":
     # Load and process image we want to do prediciton on
-    prediction_image_path = "../data/prediction_data/prediction_image.jpg"
-    model_path = "../models/veggie_vision_tensorflow.h5"
+    prediction_image_path = "data/prediction_data/prediction_image.jpg"
+    model_path = "models/veggie_vision_tensorflow.h5"
 
     prediction = predict_image(prediction_image_path, model_path)
 
