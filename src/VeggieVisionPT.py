@@ -171,10 +171,6 @@ def evaluate(model, X_test, y_test, device):
 
 
 if __name__ == "__main__":
-    # Set the working directory to the current file's directory
-    os.chdir(os.path.dirname(__file__))
-
-    
     # Load the data
     X = np.load("../data/processed_data/X.npy")
     y = np.load("../data/processed_data/y.npy")

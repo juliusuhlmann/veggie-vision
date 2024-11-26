@@ -3,19 +3,24 @@ import preprocessing as pp
 from PIL import Image
 import os
 
+def predict_image(prediction_image_path, model_path):
+    # Load model
+    veggie_vision = vv.VeggieVision()
+    veggie_vision.load_model(model_path)
 
-# Set the working directory to the current file's directory
-os.chdir(os.path.dirname(__file__))
+    # Load image 
+    with Image.open(prediction_image_path) as img:
+        # Preprocess Image and store the array
+        img_processed = pp.image_preprocessing_pipeline(img)
 
-# Load model
-veggie_vision = vv.VeggieVision()
-veggie_vision.load_model("../models/veggie_vision_tensorflow.h5")
+    return veggie_vision.predict(img_processed)[0][0]
 
-# Load and process image we want to do prediciton on
-prediction_image = "../data/prediction_data/prediction_image.jpg"
 
-with Image.open(prediction_image) as img:
-    # Preprocess Image and store the array
-    img_processed = pp.image_preprocessing_pipeline(img)
+if __name__ == "__main__":
+    # Load and process image we want to do prediciton on
+    prediction_image_path = "../data/prediction_data/prediction_image.jpg"
+    model_path = "../models/veggie_vision_tensorflow.h5"
 
-print(veggie_vision.predict(img_processed))
+    prediction = predict_image(prediction_image_path, model_path)
+
+    print(prediction)

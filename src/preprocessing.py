@@ -93,10 +93,7 @@ def model_specific_preprocessing (img_array):
 
 
 if __name__ == "__main__":
-    # Set the working directory to the current file's directory
-    os.chdir(os.path.dirname(__file__))
-
-    # Select directory where pictures are stored
+# Select directory where pictures are stored
     directory_images = "../data/raw_data/raw_images/"
 
     # Select filepath where lables are stored

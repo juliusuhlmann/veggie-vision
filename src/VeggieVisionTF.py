@@ -21,7 +21,7 @@ class VeggieVision:
         self.model = models.Sequential([
         self.base_model,
         layers.Flatten(),
-        layers.Dense(128, activation='relu'),
+        layers.Dense(64, activation='relu'),
         layers.Dropout(0.3),
         layers.Dense(1, activation='linear')
     ])
@@ -96,10 +96,7 @@ class VeggieVision:
 
 
 if __name__ == "__main__":
-    # Set the working directory to the current file's directory
-    os.chdir(os.path.dirname(__file__))
-    
-    # Load the data
+     # Load the data
     X = np.load("../data/processed_data/X.npy")
     y = np.load("../data/processed_data/y.npy")
 
